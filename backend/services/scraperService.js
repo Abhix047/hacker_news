@@ -5,7 +5,10 @@ const Story = require('../models/Story');
 const HN_URL = 'https://news.ycombinator.com';
 
 /**
+ * Scrapes top 10 stories from Hacker News and upserts them into MongoDB.
+ * Maps rank, title, url, points, author, and timestamp.
  * 
+ * @async
  * @returns {Promise<Story[]>} Array of saved story documents
  */
 const runScraper = async () => {
