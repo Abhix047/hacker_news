@@ -54,8 +54,14 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, async () => {
   console.log(`🚀 Server running on port ${PORT}`);
+  console.log('📡 Environment:', process.env.NODE_ENV);
+  
   // Auto-run scraper on server start
-  console.log('⏳ Running initial scrape...');
-  await runScraper();
-  console.log('✅ Initial scrape complete');
+  try {
+    console.log('⏳ Running initial scrape...');
+    await runScraper();
+    console.log('✅ Initial scrape complete');
+  } catch (err) {
+    console.error('❌ Failed to run initial scrape:', err.message);
+  }
 });
