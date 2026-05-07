@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import BookmarksPage from './pages/BookmarksPage';
 import StoryDetailPage from './pages/StoryDetailPage';
+import NotFoundPage from './pages/NotFoundPage';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
       </BrowserRouter>
