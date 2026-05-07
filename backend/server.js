@@ -7,8 +7,17 @@ const { runScraper } = require('./services/scraperService');
 const authRoutes = require('./routes/authRoutes');
 const storyRoutes = require('./routes/storyRoutes');
 const scrapeRoutes = require('./routes/scrapeRoutes');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: { success: false, message: 'Too many requests, please try again later.' },
+});
+app.use('/api/', limiter);
 
 // Connect to MongoDB
 connectDB();
