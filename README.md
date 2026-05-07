@@ -82,16 +82,20 @@ cd hn-scraper
 
 ### Auth
 - `POST /api/auth/register` - Register a new user
+  - Body: `{ "username": "...", "email": "...", "password": "..." }`
 - `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user (Auth Required)
+  - Body: `{ "email": "...", "password": "..." }`
+- `GET /api/auth/me` - Get current user profile (Auth Required)
 
 ### Stories
-- `GET /api/stories` - Fetch all stories (sorted by points, includes pagination)
-- `GET /api/stories/:id` - Fetch a single story
-- `POST /api/stories/:id/bookmark` - Toggle bookmark for a story (Auth Required)
+- `GET /api/stories` - Fetch all stories
+  - Query: `?page=1&limit=10`
+  - Response: `{ "success": true, "data": [...], "pagination": {...} }`
+- `GET /api/stories/:id` - Fetch a single story by ID
+- `POST /api/stories/:id/bookmark` - Toggle bookmark (Auth Required)
 
 ### Scraper
-- `POST /api/scrape` - Manually trigger the Hacker News scraper
+- `POST /api/scrape` - Manually trigger the scraper
 
 ## Folder Structure
 ```
