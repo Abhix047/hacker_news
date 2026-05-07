@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-inner">
         <Link to="/" className="navbar-brand">
-          <div className="brand-icon">🔥</div>
+          <div className="brand-icon">⚡</div>
           HN<span>Daily</span>
         </Link>
 
@@ -31,8 +31,18 @@ const Navbar = () => {
 
           {user ? (
             <>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', padding: '0 4px' }}>
-                👤 {user.username}
+              <span style={{
+                fontSize: '0.8rem',
+                color: 'var(--accent)',
+                fontWeight: 600,
+                padding: '4px 12px',
+                borderRadius: '100px',
+                background: 'var(--accent-glow)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}>
+                ✦ {user.username}
               </span>
               <button className="btn-nav-ghost" onClick={handleLogout}>
                 Logout
@@ -40,8 +50,8 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className="btn-nav-ghost">Login</Link>
-              <Link to="/register" className="btn-nav-primary">Register</Link>
+              <Link to="/login" className="btn-nav-ghost">Sign In</Link>
+              <Link to="/register" className="btn-nav-primary">Get Started</Link>
             </>
           )}
         </div>
